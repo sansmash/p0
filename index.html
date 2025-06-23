@@ -2,55 +2,133 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample HTML Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandeep Mogaveer | Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        };
+    </script>
+
+    <script>
+        // Apply saved theme on load
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
         }
 
-        .container {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
-    </style>
+    </script>
 </head>
 
-<body>
-    <header>
-        <h1>Sample HTML Page</h1>
-        <nav>
-            <a href="#">Home</a> |
-            <a href="#">About</a> |
-            <a href="#">Contact</a>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <header class="flex justify-between items-center p-6 shadow">
+        <h1 class="text-xl font-bold">SM</h1>
+        <nav class="space-x-6">
+            <a href="#about" class="hover:underline">About</a>
+            <a href="#projects" class="hover:underline">Projects</a>
+            <a href="#contact" class="hover:underline">Contact</a>
+            <button onclick="toggleTheme()" class="ml-4">🌓</button>
         </nav>
     </header>
 
-    <main>
-        <section class="container">
-            <h2>Welcome</h2>
-            <p>This is a sample HTML file demonstrating various HTML elements.</p>
+    <section class="text-center py-16 px-6">
+        <h2 class="text-4xl font-bold mb-2">Hi, I'm Sandeep Mogaveer</h2>
+        <p class="text-lg">MS SQL Developer / Database Administrator (2011–Present)</p>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Passionate about data architecture, performance tuning, and
+            automation.</p>
+        <div class="mt-6 space-x-4">
+            <a href="#projects" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">View Projects</a>
+            <a href="#" class="border px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Download Resume</a>
+        </div>
+    </section>
 
-            <details>
-                <summary>More Information</summary>
-                <p>This section contains additional details that can be expanded.</p>
-            </details>
-        </section>
+    <section id="about" class="px-6 py-12 grid md:grid-cols-2 gap-6">
+        <div class="text-center md:text-left">
+            <div class="w-24 h-24 mx-auto md:mx-0 bg-gray-300 rounded-full mb-4"></div>
+            <p>Karnataka-based professional</p>
+            <p>Having over 12 years in SQL Server</p>
+            <p>Interested in ETL and monitoring</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-semibold mb-4">Skills</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">MS SQL Server</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">T-SQL</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">SSIS</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">SSRS</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">Performance Tuning</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">High Availability</span>
+                <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded">Indexing</span>
+            </div>
+        </div>
+    </section>
 
-        <section class="container">
-            <h2>Sample Code Output</h2>
-            <p>When you run the program, you'll see: <samp>Process completed successfully.</samp></p>
-        </section>
-    </main>
+    <section id="projects" class="px-6 py-12 bg-gray-100 dark:bg-gray-800">
+        <h3 class="text-2xl font-semibold mb-6 text-center">Projects</h3>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded shadow max-w-xl mx-auto">
+            <h4 class="text-xl font-bold mb-2">Data Migration Automation Tool</h4>
+            <p class="text-gray-700 dark:text-gray-300 mb-2">Developed a solution to automate data migration between
+                environments.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">MS SQL Server, PowerShell</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="bg-gray-800 text-white px-3 py-1 rounded">GitHub</a>
+                <a href="#" class="border px-3 py-1 rounded">Details</a>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2023 Sample Website</p>
+    <section class="px-6 py-12">
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">Experience</h3>
+                <p><strong>DBA</strong> @ Company Name — Present</p>
+                <p><strong>Developer</strong> @ Company Name — YYYY–YYYY</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">Testimonials</h3>
+                <p>"He's a wizard with SQL Server performance tuning." — X</p>
+                <p>"Reliable and proactive database admin." — Y</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-12 bg-gray-100 dark:bg-gray-800">
+        <h3 class="text-2xl font-semibold mb-4 text-center">Blog</h3>
+        <div class="text-center">
+            <h4 class="text-xl font-bold">Indexing Strategies in SQL Server</h4>
+            <p class="text-gray-600 dark:text-gray-300">Explored effective approaches to indexing for improved database
+                performance</p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 underline mt-2 inline-block">Read More</a>
+        </div>
+    </section>
+
+    <section id="contact" class="px-6 py-12">
+        <h3 class="text-2xl font-semibold mb-4 text-center">Contact</h3>
+        <p class="text-center mb-6">Interested in working together? Let’s talk.</p>
+        <form class="max-w-xl mx-auto space-y-4">
+            <input type="text" placeholder="Name" class="w-full p-2 border rounded dark:bg-gray-900" />
+            <input type="email" placeholder="Email" class="w-full p-2 border rounded dark:bg-gray-900" />
+            <textarea placeholder="Message" class="w-full p-2 border rounded dark:bg-gray-900"></textarea>
+            <button type="submit" class="bg-gray-800 text-white px-4 py-2 rounded">Send</button>
+        </form>
+        <div class="text-center mt-6">
+            <p>Email: <a href="mailto:you@example.com" class="underline">you@example.com</a></p>
+            <p>
+                <a href="#" class="underline">LinkedIn</a> |
+                <a href="#" class="underline">GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 border-t dark:border-gray-700">
+        © 2025 Sandeep Mogaveer | Built with TailwindCSS & ❤️
     </footer>
 </body>
 
